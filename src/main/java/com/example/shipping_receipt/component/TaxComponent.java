@@ -25,7 +25,7 @@ public class TaxComponent {
         }
     
         final BigDecimal taxRate = BigDecimal.valueOf(location.getTaxRate()).divide(new BigDecimal("100")); 
-        final BigDecimal roundedTaxRate = roundComponent.roundToNearestIncrement(taxRate, BigDecimal.valueOf(0.0005));
+        final BigDecimal roundedTaxRate = roundComponent.roundUpToNearestIncrement(taxRate, BigDecimal.valueOf(0.0005));
         
         return price.multiply(roundedTaxRate).setScale(2, RoundingMode.HALF_UP);
         
