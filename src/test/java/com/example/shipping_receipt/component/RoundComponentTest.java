@@ -18,7 +18,7 @@ class RoundComponentTest {
     private final RoundComponent roundComponent;
 
     @Autowired
-    public RoundComponentTest(RoundComponent roundComponent) {
+    RoundComponentTest(RoundComponent roundComponent) {
         this.roundComponent = roundComponent;
     }
 

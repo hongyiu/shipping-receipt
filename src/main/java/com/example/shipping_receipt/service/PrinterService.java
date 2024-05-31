@@ -39,7 +39,7 @@ public class PrinterService {
 
         final Product product = productService.findByName(cartProduct.name());
 
-        final BigDecimal price = BigDecimal.valueOf(cartProduct.price());
+        final BigDecimal price = BigDecimal.valueOf(cartProduct.price()).setScale(2);
         final BigDecimal tax = taxComponent.calculateTax(product, price, location);
 
         return new ReceiptItem(

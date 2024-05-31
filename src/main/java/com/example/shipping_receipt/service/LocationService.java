@@ -22,7 +22,7 @@ public class LocationService {
         private final String id;
 
         protected LocationIdNotFoundException(String id) {
-            super("Location not found");
+            super("Location not found with id: " + id);
             this.id = id;
         }
         

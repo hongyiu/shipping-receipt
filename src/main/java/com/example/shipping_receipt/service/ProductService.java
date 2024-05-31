@@ -21,7 +21,7 @@ public class ProductService {
         private final String name;
 
         protected ProductNameNotFoundException(String name) {
-            super("Product name not found: " + name);
+            super("Product not found with name: " + name);
             this.name = name;
         }
 

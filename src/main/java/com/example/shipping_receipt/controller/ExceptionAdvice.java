@@ -14,9 +14,9 @@ import com.example.shipping_receipt.service.LocationService.LocationIdNotFoundEx
 import com.example.shipping_receipt.service.ProductService.ProductNameNotFoundException;
 
 @ControllerAdvice
-public class MyControllerAdvice {
+public class ExceptionAdvice {
 
-    private static final Logger log = LoggerFactory.getLogger(MyControllerAdvice.class);
+    private static final Logger log = LoggerFactory.getLogger(ExceptionAdvice.class);
 
     @ExceptionHandler(ProductNameNotFoundException.class)
     public ResponseEntity<String> handleProductNotFoundException(ProductNameNotFoundException e) {

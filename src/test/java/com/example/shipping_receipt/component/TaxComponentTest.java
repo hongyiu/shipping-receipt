@@ -20,7 +20,7 @@ class TaxComponentTest {
     private final TaxComponent taxComponent;
 
     @Autowired
-    public TaxComponentTest(TaxComponent taxComponent) {
+    TaxComponentTest(TaxComponent taxComponent) {
         this.taxComponent = taxComponent;
     }
 
