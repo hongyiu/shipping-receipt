@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.example.shipping_receipt.component.RoundComponent.IncrementMustBeGreaterThanZeroException;
+import com.example.shipping_receipt.component.RoundComponent.IncrementOutOfRangeException;
+import com.example.shipping_receipt.component.RoundComponent.ValueOutOfRangeException;
 import com.example.shipping_receipt.service.LocationService.LocationIdNotFoundException;
 import com.example.shipping_receipt.service.ProductService.ProductNameNotFoundException;
 
@@ -29,10 +31,22 @@ public class MyControllerAdvice {
             .status(HttpStatus.NOT_FOUND)
             .body(e.getMessage());
     }
-
+    
     @ExceptionHandler(IncrementMustBeGreaterThanZeroException.class)
     public ResponseEntity<String> handleIncrementMustBeGreaterThanZeroException(IncrementMustBeGreaterThanZeroException e) {
         log.error("Increment must be greater than zero", e);
+        return ResponseEntity.internalServerError().build();
+    }
+
+    @ExceptionHandler(ValueOutOfRangeException.class)
+    public ResponseEntity<String> handleValueOutOfRangeException(ValueOutOfRangeException e) {
+        log.error("Value is out of range", e);
+        return ResponseEntity.internalServerError().build();
+    }
+
+    @ExceptionHandler(IncrementOutOfRangeException.class)
+    public ResponseEntity<String> handleIncrementOutOfRangeException(IncrementOutOfRangeException e) {
+        log.error("Increment is out of range", e);
         return ResponseEntity.internalServerError().build();
     }
 
